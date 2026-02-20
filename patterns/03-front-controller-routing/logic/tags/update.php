@@ -1,5 +1,4 @@
 <?php
-defined("APP_ACCESS") || die("Direct access forbidden.");
 
 $id = $_GET['id'] ?? null;
 

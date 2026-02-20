@@ -1,6 +1,4 @@
 <?php
-defined("APP_ACCESS") || die("Direct access forbidden.");
-defined('APP_ACCESS') || die('Direct access forbidden.');
 
 // Fetch todos with category and tags
 $sql = "SELECT 

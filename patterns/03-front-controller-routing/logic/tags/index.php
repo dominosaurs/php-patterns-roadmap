@@ -1,5 +1,4 @@
 <?php
-defined("APP_ACCESS") || die("Direct access forbidden.");
 
 $tags = db_get_all("SELECT * FROM tags ORDER BY name");
 

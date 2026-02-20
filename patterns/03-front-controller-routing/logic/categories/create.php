@@ -1,5 +1,4 @@
 <?php
-defined("APP_ACCESS") || die("Direct access forbidden.");
 
 if (count($_POST) > 0) {
     db_query("INSERT INTO categories (name, color) VALUES (:name, :color)", [

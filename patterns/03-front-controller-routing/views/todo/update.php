@@ -1,6 +1,4 @@
-<?php
-defined("APP_ACCESS") || die("Direct access forbidden.");
-include '_includes/header.php'; ?>
+<?php include '_includes/header.php'; ?>
 
 <form method="POST" autocomplete="off" id="update-todo-form">
     <p>
