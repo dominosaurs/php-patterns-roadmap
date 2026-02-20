@@ -80,7 +80,7 @@ This project is a journey. Follow the folders in order to see how the code impro
 - **[01-basic-procedural](./patterns/01-basic-procedural/)** (Current)
   - Raw PHP. Logic, database, and HTML are all mixed together.
   - **Lesson**: Why "Spaghetti Code" is hard to read and maintain.
-- **02-refactored-procedural** (Planned)
+- **[02-refactored-procedural](./patterns/01-refactored-procedural/)** (Planned)
   - Moving logic into reusable functions.
   - **Lesson**: Don't Repeat Yourself (DRY).
 
