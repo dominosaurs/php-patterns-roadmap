@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($categories as $cat): ?>
+        <?php foreach ($categories as $cat) { ?>
             <tr>
                 <td>
                     <span style="color: <?= $cat['color'] ?? '#000' ?>;">●</span>
@@ -17,11 +17,11 @@
                 </td>
                 <td><code><?= e($cat['color'] ?? '-') ?></code></td>
                 <td>
-                    <a href="<?= url('categories/update?id=' . $cat['id']) ?>">Edit</a>
-                    <a href="<?= url('categories/delete?id=' . $cat['id']) ?>">Delete</a>
+                    <a href="<?= url('categories/update?id='.$cat['id']) ?>">Edit</a>
+                    <a href="<?= url('categories/delete?id='.$cat['id']) ?>">Delete</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 

@@ -2,7 +2,7 @@
 require_once '../_includes/functions.php';
 
 if (count($_POST) > 0) {
-    db_query("INSERT INTO tags (name) VALUES (:name)", [':name' => $_POST['name']]);
+    db_query('INSERT INTO tags (name) VALUES (:name)', [':name' => $_POST['name']]);
     redirect('index.php');
 }
 

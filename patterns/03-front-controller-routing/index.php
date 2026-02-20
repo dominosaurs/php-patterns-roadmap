@@ -40,12 +40,12 @@ $allowed_routes = [
     'tags/index',
     'tags/create',
     'tags/update',
-    'tags/delete'
+    'tags/delete',
 ];
 
-if (!in_array($route, $allowed_routes)) {
+if (! in_array($route, $allowed_routes)) {
     http_response_code(404);
-    die("Route not found: " . e($route) . "<br><small>Note: Pretty URLs might require a router script if using php -S from root.</small>");
+    exit('Route not found: '.e($route).'<br><small>Note: Pretty URLs might require a router script if using php -S from root.</small>');
 }
 
 // 4. Execute Logic

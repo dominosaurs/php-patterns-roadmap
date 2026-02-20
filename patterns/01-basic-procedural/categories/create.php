@@ -3,11 +3,11 @@ require_once '../../../database/pdo.php';
 
 if (count($_POST) > 0) {
     $statement = $pdo->prepare(
-        "INSERT INTO categories (name, color) VALUES (:name, :color)"
+        'INSERT INTO categories (name, color) VALUES (:name, :color)'
     );
     $statement->execute([
         ':name' => $_POST['name'],
-        ':color' => $_POST['color']
+        ':color' => $_POST['color'],
     ]);
 
     header('Location: index.php');

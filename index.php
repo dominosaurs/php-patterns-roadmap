@@ -25,7 +25,7 @@ $patterns = array_filter(
     <main>
         <p>Follow the roadmap by selecting an evolution step below:</p>
 
-        <?php foreach ($patterns as $path): ?>
+        <?php foreach ($patterns as $path) { ?>
             <?php $name = basename($path); ?>
             <article>
                 <h3>
@@ -35,7 +35,7 @@ $patterns = array_filter(
                 </h3>
                 <p>Architecture: <code><?= $name ?></code></p>
             </article>
-        <?php endforeach; ?>
+        <?php } ?>
     </main>
 
     <footer>

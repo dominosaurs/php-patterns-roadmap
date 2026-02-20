@@ -7,7 +7,7 @@
  */
 
 // Include the PDO connection
-require_once __DIR__ . '/../../../database/pdo.php';
+require_once __DIR__.'/../../../database/pdo.php';
 
 /**
  * Escapes HTML output.
@@ -25,6 +25,7 @@ function db_query($sql, $params = [])
     global $pdo;
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
+
     return $stmt;
 }
 
@@ -51,7 +52,8 @@ function url($path = '')
 {
     $script_name = $_SERVER['SCRIPT_NAME'];
     $base_path = str_replace('index.php', '', $script_name);
-    return $base_path . ltrim($path, '/');
+
+    return $base_path.ltrim($path, '/');
 }
 
 /**
@@ -59,7 +61,7 @@ function url($path = '')
  */
 function redirect($path)
 {
-    header("Location: " . url($path));
+    header('Location: '.url($path));
     exit;
 }
 

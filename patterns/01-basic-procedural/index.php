@@ -2,7 +2,7 @@
 require_once '../../database/pdo.php';
 
 // Fetch todos with category and tags
-$sql = "SELECT 
+$sql = 'SELECT 
             todos.*, 
             categories.name as category_name, 
             categories.color as category_color,
@@ -12,7 +12,7 @@ $sql = "SELECT
         LEFT JOIN todo_tags ON todos.id = todo_tags.todo_id
         LEFT JOIN tags ON todo_tags.tag_id = tags.id
         GROUP BY todos.id
-        ORDER BY todos.is_completed ASC, todos.created_at DESC";
+        ORDER BY todos.is_completed ASC, todos.created_at DESC';
 
 $statement = $pdo->prepare($sql);
 $statement->execute();
@@ -22,13 +22,13 @@ $title = 'Todo List';
 include '_includes/header.php';
 ?>
 
-<?php if (empty($todos)): ?>
+<?php if (empty($todos)) { ?>
     <article>
         <p>
             <code>No todos found. Start by <a href="create.php">adding your first task</a>.</code>
         </p>
     </article>
-<?php else: ?>
+<?php } else { ?>
     <table>
         <thead>
             <tr>
@@ -39,7 +39,7 @@ include '_includes/header.php';
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($todos as $todo): ?>
+            <?php foreach ($todos as $todo) { ?>
                 <tr>
                     <td style="text-align: center;">
                         <?= $todo['is_completed'] ? '✅' : '⏳' ?>
@@ -50,26 +50,26 @@ include '_includes/header.php';
                         </a>
                     </td>
                     <td>
-                        <?php if ($todo['category_name']): ?>
+                        <?php if ($todo['category_name']) { ?>
                             <mark style="background-color: <?= $todo['category_color'] ?? '#eee' ?>; color: white;">
                                 <?= htmlspecialchars($todo['category_name']) ?>
                             </mark>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if ($todo['tag_names']): ?>
-                            <?php foreach (explode(',', $todo['tag_names']) as $tag): ?>
+                        <?php if ($todo['tag_names']) { ?>
+                            <?php foreach (explode(',', $todo['tag_names']) as $tag) { ?>
                                 <code>#<?= htmlspecialchars($tag) ?></code>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                            <?php } ?>
+                        <?php } ?>
                     </td>
                     <td>
                         <a href="update.php?id=<?= $todo['id'] ?>">Edit</a>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+            <?php } ?>
         </tbody>
     </table>
-<?php endif; ?>
+<?php } ?>
 
 <p>
     <a href="create.php" class="button">Add New Todo</a>

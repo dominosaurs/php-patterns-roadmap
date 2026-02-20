@@ -1,7 +1,7 @@
 <?php
 require_once '../_includes/functions.php';
 
-$tags = db_get_all("SELECT * FROM tags ORDER BY name");
+$tags = db_get_all('SELECT * FROM tags ORDER BY name');
 
 $title = 'Manage Tags';
 include '../_includes/header.php';
@@ -15,7 +15,7 @@ include '../_includes/header.php';
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($tags as $tag): ?>
+        <?php foreach ($tags as $tag) { ?>
             <tr>
                 <td>#<?= e($tag['name']) ?></td>
                 <td>
@@ -23,7 +23,7 @@ include '../_includes/header.php';
                     <a href="delete.php?id=<?= $tag['id'] ?>">Delete</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 

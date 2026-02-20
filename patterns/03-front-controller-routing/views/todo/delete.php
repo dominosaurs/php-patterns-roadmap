@@ -8,7 +8,7 @@
     <form method="POST">
         <input type="hidden" name="confirm" value="1">
         <button type="submit">Delete Todo</button>
-        <a href="<?= url('todo/read?id=' . $id) ?>">Cancel</a>
+        <a href="<?= url('todo/read?id='.$id) ?>">Cancel</a>
     </form>
 </article>
 

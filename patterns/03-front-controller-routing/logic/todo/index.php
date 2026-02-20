@@ -1,7 +1,7 @@
 <?php
 
 // Fetch todos with category and tags
-$sql = "SELECT 
+$sql = 'SELECT 
             todos.*, 
             categories.name as category_name, 
             categories.color as category_color,
@@ -11,7 +11,7 @@ $sql = "SELECT
         LEFT JOIN todo_tags ON todos.id = todo_tags.todo_id
         LEFT JOIN tags ON todo_tags.tag_id = tags.id
         GROUP BY todos.id
-        ORDER BY todos.is_completed ASC, todos.created_at DESC";
+        ORDER BY todos.is_completed ASC, todos.created_at DESC';
 
 $todos = db_get_all($sql);
 

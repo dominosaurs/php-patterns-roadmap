@@ -10,22 +10,22 @@
         <label>Category</label>
         <select name="category_id">
             <option value="">-- No Category --</option>
-            <?php foreach ($categories as $cat): ?>
+            <?php foreach ($categories as $cat) { ?>
                 <option value="<?= $cat['id'] ?>" <?= $cat['id'] == $todo['category_id'] ? 'selected' : '' ?>>
                     <?= e($cat['name']) ?>
                 </option>
-            <?php endforeach; ?>
+            <?php } ?>
         </select>
     </p>
 
     <p>
         <label>Tags</label>
-        <?php foreach ($tags as $tag): ?>
+        <?php foreach ($tags as $tag) { ?>
             <label>
                 <input type="checkbox" name="tags[]" value="<?= $tag['id'] ?>" <?= in_array($tag['id'], $currentTagIds) ? 'checked' : '' ?>>
                 #<?= e($tag['name']) ?>
             </label>
-        <?php endforeach; ?>
+        <?php } ?>
     </p>
 
     <p>
@@ -43,7 +43,7 @@
 
 <p>
     <button type="submit" form="update-todo-form">Update Todo</button>
-    <a href="<?= url('todo/read?id=' . $id) ?>">Cancel</a>
+    <a href="<?= url('todo/read?id='.$id) ?>">Cancel</a>
 </p>
 
 <?php include '_includes/footer.php'; ?>

@@ -7,7 +7,7 @@
  */
 
 // Include the PDO connection
-require_once __DIR__ . '/../../../database/pdo.php';
+require_once __DIR__.'/../../../database/pdo.php';
 
 /**
  * Escapes HTML output.
@@ -27,6 +27,7 @@ function db_query($sql, $params = [])
     global $pdo;
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
+
     return $stmt;
 }
 

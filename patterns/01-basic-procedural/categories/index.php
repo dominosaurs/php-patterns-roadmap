@@ -1,7 +1,7 @@
 <?php
 require_once '../../../database/pdo.php';
 
-$statement = $pdo->query("SELECT * FROM categories ORDER BY name");
+$statement = $pdo->query('SELECT * FROM categories ORDER BY name');
 $categories = $statement->fetchAll();
 
 $title = 'Manage Categories';
@@ -17,7 +17,7 @@ include '../_includes/header.php';
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($categories as $cat): ?>
+        <?php foreach ($categories as $cat) { ?>
             <tr>
                 <td>
                     <span style="color: <?= $cat['color'] ?? '#000' ?>;">●</span>
@@ -29,7 +29,7 @@ include '../_includes/header.php';
                     <a href="delete.php?id=<?= $cat['id'] ?>">Delete</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 

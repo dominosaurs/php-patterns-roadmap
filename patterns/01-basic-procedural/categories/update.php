@@ -3,15 +3,15 @@ require_once '../../../database/pdo.php';
 
 if (count($_POST) > 0) {
     $statement = $pdo->prepare(
-        "UPDATE categories SET
+        'UPDATE categories SET
             name = :name,
             color = :color
-        WHERE id = :id"
+        WHERE id = :id'
     );
     $statement->execute([
         ':name' => $_POST['name'],
         ':color' => $_POST['color'],
-        ':id' => $_POST['id']
+        ':id' => $_POST['id'],
     ]);
 
     header('Location: index.php');
@@ -22,8 +22,9 @@ $stmt = $pdo->prepare('SELECT * FROM categories WHERE id = ?');
 $stmt->execute([$_GET['id']]);
 $cat = $stmt->fetch();
 
-if (!$cat)
-    die("Category not found.");
+if (! $cat) {
+    exit('Category not found.');
+}
 
 $title = 'Update Category';
 include '../_includes/header.php';

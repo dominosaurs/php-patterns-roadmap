@@ -49,13 +49,13 @@
     <header>
         <?php
         $current_page = $_SERVER['SCRIPT_NAME'];
-        $base = (strpos($current_page, 'categories/') !== false || strpos($current_page, 'tags/') !== false) ? '../' : '';
-        ?>
+    $base = (strpos($current_page, 'categories/') !== false || strpos($current_page, 'tags/') !== false) ? '../' : '';
+    ?>
         <p><a href="/">🐘 Back to Roadmap Dashboard</a></p>
         <h1><?= $title ?></h1>
         <p><small>Pattern: <strong>02-refactored-procedural 🐘</strong></small></p>
         <nav>
-            <a href="<?= $base ?>index.php" class="<?= (is_active('index.php') && !$base) ? 'current' : '' ?>">Home</a>
+            <a href="<?= $base ?>index.php" class="<?= (is_active('index.php') && ! $base) ? 'current' : '' ?>">Home</a>
             •
             <a href="<?= $base ?>categories/index.php"
                 class="<?= is_active('categories/') ? 'current' : '' ?>">Categories</a> •
