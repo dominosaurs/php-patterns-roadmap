@@ -47,19 +47,14 @@
 
 <body>
     <header>
-        <?php
-        $current_page = $_SERVER['SCRIPT_NAME'];
-        $base = (strpos($current_page, 'categories/') !== false || strpos($current_page, 'tags/') !== false) ? '../' : '';
-        ?>
         <p><a href="/">🐘 Back to Roadmap Dashboard</a></p>
         <h1><?= $title ?></h1>
-        <p><small>Pattern: <strong>02-refactored-procedural 🐘</strong></small></p>
+        <p><small>Pattern: <strong>03-front-controller-routing 🐘</strong></small></p>
         <nav>
-            <a href="<?= $base ?>index.php" class="<?= (is_active('index.php') && !$base) ? 'current' : '' ?>">Home</a>
-            •
-            <a href="<?= $base ?>categories/index.php"
-                class="<?= is_active('categories/') ? 'current' : '' ?>">Categories</a> •
-            <a href="<?= $base ?>tags/index.php" class="<?= is_active('tags/') ? 'current' : '' ?>">Tags</a>
+            <a href="<?= url('todo/index') ?>" class="<?= is_active_route('todo/') ? 'current' : '' ?>">Home</a> •
+            <a href="<?= url('categories/index') ?>"
+                class="<?= is_active_route('categories/') ? 'current' : '' ?>">Categories</a> •
+            <a href="<?= url('tags/index') ?>" class="<?= is_active_route('tags/') ? 'current' : '' ?>">Tags</a>
         </nav>
     </header>
 
