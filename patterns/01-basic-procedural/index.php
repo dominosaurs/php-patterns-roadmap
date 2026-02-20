@@ -18,14 +18,14 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 $todos = $statement->fetchAll();
 
-$title = 'To Do List';
+$title = 'Todo List';
 include '_includes/header.php';
 ?>
 
 <?php if (empty($todos)): ?>
     <article>
         <p>
-            <code>No todos found, let's <a href="create.php">add a new one</a>.</code>
+            <code>No todos found. Start by <a href="create.php">adding your first task</a>.</code>
         </p>
     </article>
 <?php else: ?>
@@ -72,7 +72,7 @@ include '_includes/header.php';
 <?php endif; ?>
 
 <p>
-    <a href="create.php" class="button">add new todo</a>
+    <a href="create.php" class="button">Add New Todo</a>
 </p>
 
 <?php include '_includes/footer.php'; ?>

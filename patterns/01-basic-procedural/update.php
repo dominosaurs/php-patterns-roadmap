@@ -56,7 +56,7 @@ $currentTagStmt = $pdo->prepare(
 $currentTagStmt->execute([$_GET['id']]);
 $currentTags = $currentTagStmt->fetchAll(PDO::FETCH_COLUMN);
 
-$title = 'Update To Do #' . $todo['id'];
+$title = 'Update Todo #' . $todo['id'];
 include '_includes/header.php';
 ?>
 
@@ -64,7 +64,7 @@ include '_includes/header.php';
     <input type="hidden" name="id" value="<?= $todo['id'] ?>">
 
     <p>
-        <label>To Do</label>
+        <label>Task name</label>
         <input type="text" name="name" required value="<?= htmlspecialchars($todo['name']) ?>">
     </p>
 
@@ -98,14 +98,14 @@ include '_includes/header.php';
     <p>
         <label>
             <input type="checkbox" name="is_completed" value="1" <?= $todo['is_completed'] ? 'checked' : '' ?>>
-            <strong>Mark as Completed</strong>
+            <strong>Mark as completed</strong>
         </label>
     </p>
 </form>
 
 <p>
-    <button type="submit" form="update-todo-form">update</button>
-    <a href="read.php?id=<?= $todo['id'] ?>">cancel</a>
+    <button type="submit" form="update-todo-form">Update Todo</button>
+    <a href="read.php?id=<?= $todo['id'] ?>">Cancel</a>
 </p>
 
 <?php include '_includes/footer.php'; ?>

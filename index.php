@@ -19,11 +19,11 @@ $patterns = array_filter(
 <body>
     <header>
         <h1>🐘 PHP Patterns Roadmap</h1>
-        <p>A beginner's journey from basic code to professional patterns.</p>
+        <p>A beginner's journey from basic procedural code to professional architectures.</p>
     </header>
 
     <main>
-        <p>Follow the roadmap by selecting a pattern below:</p>
+        <p>Follow the roadmap by selecting an evolution step below:</p>
 
         <?php foreach ($patterns as $path): ?>
             <?php $name = basename($path); ?>
@@ -33,13 +33,13 @@ $patterns = array_filter(
                         <?= str_replace('-', ' ', ucwords($name, '-')) ?>
                     </a>
                 </h3>
-                <p>Learn the logic and structure behind: <code><?= $name ?></code></p>
+                <p>Architecture: <code><?= $name ?></code></p>
             </article>
         <?php endforeach; ?>
     </main>
 
     <footer>
-        <p>Follow the <a href="README.md">README</a> for the complete 🐘 PHP patterns.</p>
+        <p>🐘 Follow the <a href="README.md">README</a> for the complete roadmap documentation.</p>
     </footer>
 </body>
 

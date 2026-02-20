@@ -41,13 +41,13 @@ $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
 // Fetch tags for the form
 $tags = $pdo->query("SELECT * FROM tags")->fetchAll();
 
-$title = 'Add new To Do';
+$title = 'Add New Todo';
 include '_includes/header.php';
 ?>
 
 <form method="POST" autocomplete="off" id="create-todo-form">
     <p>
-        <label>To Do</label>
+        <label>Task name</label>
         <input type="text" name="name" required>
     </p>
 
@@ -79,14 +79,14 @@ include '_includes/header.php';
     <p>
         <label>
             <input type="checkbox" name="is_completed" value="1">
-            <strong>Mark as Completed</strong>
+            <strong>Mark as completed</strong>
         </label>
     </p>
 </form>
 
 <p>
-    <button type="submit" form="create-todo-form">add</button>
-    <a href="index.php">cancel</a>
+    <button type="submit" form="create-todo-form">Add Todo</button>
+    <a href="index.php">Cancel</a>
 </p>
 
 <?php include '_includes/footer.php'; ?>
