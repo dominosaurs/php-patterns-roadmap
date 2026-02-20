@@ -29,7 +29,7 @@ $patterns = array_filter(
             <?php $name = basename($path); ?>
             <article>
                 <h3>
-                    <a href="<?= $path ?>/index.php">
+                    <a href="<?= $path ?>/">
                         <?= str_replace('-', ' ', ucwords($name, '-')) ?>
                     </a>
                 </h3>
