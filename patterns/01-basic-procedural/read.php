@@ -27,7 +27,7 @@ $tagStmt = $pdo->prepare("SELECT tags.name
 $tagStmt->execute([':id' => $_GET['id']]);
 $tags = $tagStmt->fetchAll();
 
-$title = 'To Do #' . $todo['id'];
+$title = 'Todo Details';
 include '_includes/header.php';
 ?>
 
@@ -62,15 +62,15 @@ include '_includes/header.php';
     <?php endif; ?>
 </p>
 
-<pre><?= htmlspecialchars($todo['description'] ?? 'No description') ?></pre>
+<pre><?= htmlspecialchars($todo['description'] ?? 'No description provided') ?></pre>
 
 <p>
     <small>Created at: <?= $todo['created_at'] ?></small>
 </p>
 
 <p>
-    <a href="update.php?id=<?= $todo['id'] ?>" class="button">edit</a>
-    <a href="delete.php?id=<?= $todo['id'] ?>">delete</a>
+    <a href="update.php?id=<?= $todo['id'] ?>" class="button">Edit</a>
+    <a href="delete.php?id=<?= $todo['id'] ?>">Delete</a>
 </p>
 
 <?php include '_includes/footer.php'; ?>

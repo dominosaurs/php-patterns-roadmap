@@ -21,18 +21,18 @@ $tag = $stmt->fetch();
 if (!$tag)
     die("Tag not found.");
 
-$title = 'Update Tag #' . $tag['id'];
+$title = 'Update Tag';
 include '../_includes/header.php';
 ?>
 
 <form method="POST">
     <input type="hidden" name="id" value="<?= $tag['id'] ?>">
     <p>
-        <label>Tag Name</label>
+        <label>Tag name</label>
         <input type="text" name="name" required value="<?= htmlspecialchars($tag['name']) ?>">
     </p>
-    <button type="submit">update tag</button>
-    <a href="index.php">cancel</a>
+    <button type="submit">Update Tag</button>
+    <a href="index.php">Cancel</a>
 </form>
 
 <?php include '../_includes/footer.php'; ?>

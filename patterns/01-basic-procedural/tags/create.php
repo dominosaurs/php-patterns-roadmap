@@ -17,11 +17,11 @@ include '../_includes/header.php';
 
 <form method="POST">
     <p>
-        <label>Tag Name</label>
+        <label>Tag name</label>
         <input type="text" name="name" placeholder="e.g. urgent" required>
     </p>
-    <button type="submit">save tag</button>
-    <a href="index.php">cancel</a>
+    <button type="submit">Save Tag</button>
+    <a href="index.php">Cancel</a>
 </form>
 
 <?php include '../_includes/footer.php'; ?>

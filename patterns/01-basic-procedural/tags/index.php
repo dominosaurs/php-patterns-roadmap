@@ -18,7 +18,7 @@ include '../_includes/header.php';
     <tbody>
         <?php foreach ($tags as $tag): ?>
             <tr>
-                <td><code>#<?= htmlspecialchars($tag['name']) ?></code></td>
+                <td>#<?= htmlspecialchars($tag['name']) ?></td>
                 <td>
                     <a href="update.php?id=<?= $tag['id'] ?>">Edit</a>
                     <a href="delete.php?id=<?= $tag['id'] ?>">Delete</a>
@@ -29,7 +29,7 @@ include '../_includes/header.php';
 </table>
 
 <p>
-    <a href="create.php" class="button">add new tag</a>
+    <a href="create.php" class="button">Add New Tag</a>
 </p>
 
 <?php include '../_includes/footer.php'; ?>

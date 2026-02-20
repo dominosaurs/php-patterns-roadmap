@@ -34,7 +34,7 @@ include '../_includes/header.php';
 </table>
 
 <p>
-    <a href="create.php" class="button">add new category</a>
+    <a href="create.php" class="button">Add New Category</a>
 </p>
 
 <?php include '../_includes/footer.php'; ?>

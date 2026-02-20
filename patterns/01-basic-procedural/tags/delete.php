@@ -1,6 +1,8 @@
 <?php
 require_once '../../../database/pdo.php';
 
+$id = (int) ($_GET['id'] ?? 0);
+
 if (count($_POST) > 0) {
     $statement = $pdo->prepare("DELETE FROM tags WHERE id = :id");
     $statement->execute([':id' => $_POST['id']]);
@@ -9,17 +11,27 @@ if (count($_POST) > 0) {
     exit;
 }
 
-$title = 'Delete Tag #' . $_GET['id'];
+$stmt = $pdo->prepare("SELECT name FROM tags WHERE id = ?");
+$stmt->execute([$id]);
+$tag = $stmt->fetch();
+
+if (!$tag) {
+    die("Tag not found.");
+}
+
+$title = 'Delete Tag';
 include '../_includes/header.php';
 ?>
 
-<p>Are you sure you want to delete tag #<?= (int) $_GET['id'] ?>?</p>
-<p><small>Note: This will remove this tag from all Todos.</small></p>
+<article>
+    <p>Are you sure you want to delete the tag <strong>#<?= htmlspecialchars($tag['name']) ?></strong>?</p>
+    <p><small>Note: This will remove this tag from all Todos.</small></p>
 
-<form method="POST">
-    <input type="hidden" name="id" value="<?= (int) $_GET['id'] ?>">
-    <button type="submit">yes, delete</button>
-    <a href="index.php">cancel</a>
-</form>
+    <form method="POST">
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <button type="submit">Delete Tag</button>
+        <a href="index.php">Cancel</a>
+    </form>
+</article>
 
 <?php include '../_includes/footer.php'; ?>
