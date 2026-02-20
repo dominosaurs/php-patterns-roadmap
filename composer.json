@@ -1,0 +1,20 @@
+{
+    "name": "dominosaurs/php-patterns-roadmap",
+    "description": "🐘 PHP Patterns Roadmap: A Beginner's Guide from Procedural to Industry-Standard Architecture",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\P04\\": "patterns/04-modern-infrastructure/src/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "laravel/pint": "^1.13"
+    },
+    "scripts": {
+        "start": "php -S localhost:8000",
+        "format": "pint",
+        "migrate": "php database/migrate.php"
+    }
+}

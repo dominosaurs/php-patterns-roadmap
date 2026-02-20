@@ -19,7 +19,7 @@ $patterns = array_filter(
 <body>
     <header>
         <h1>🐘 PHP Patterns Roadmap</h1>
-        <p>A beginner's journey from basic procedural code to professional architectures.</p>
+        <p>A beginner's journey from basic procedural code to industry-standard architectures.</p>
     </header>
 
     <main>
