@@ -6,9 +6,6 @@
  * Purpose: Single entry point with Pretty URLs.
  */
 
-// Define access constant to prevent direct file access
-define('APP_ACCESS', true);
-
 // 1. Load Helpers
 require_once '_includes/functions.php';
 

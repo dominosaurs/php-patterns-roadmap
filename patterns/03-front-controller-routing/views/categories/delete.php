@@ -1,6 +1,4 @@
-<?php
-defined("APP_ACCESS") || die("Direct access forbidden.");
-include '_includes/header.php'; ?>
+<?php include '_includes/header.php'; ?>
 
 <article>
     <p>Are you sure you want to delete the category <strong><?= e($category['name']) ?></strong>?</p>

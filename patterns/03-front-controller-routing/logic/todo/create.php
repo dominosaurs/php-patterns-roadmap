@@ -1,5 +1,4 @@
 <?php
-defined("APP_ACCESS") || die("Direct access forbidden.");
 
 // Handle POST request
 if (count($_POST) > 0) {
