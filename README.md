@@ -22,7 +22,34 @@ This project prioritizes **structural clarity** over features.
 - **Shared Database**: All patterns share the same SQLite database (`database/database.sqlite`). This demonstrates that while the *code* (the pattern) changes, the *data* (the content) remains the same.
 - **Zero Configuration**: No setup is required. The database is **automatically created and seeded** the first time you run the application.
 
-## 🚀 How to Run
+## 🏁 Getting Started
+
+Follow these steps to get the roadmap running on your local machine.
+
+### 📋 Prerequisites
+
+- **PHP 8.1+**: [Download PHP](https://www.php.net/downloads.php) (This project uses modern PHP features like types and improved PDO interactions).
+- **PHP Extensions**:
+  - `pdo_sqlite` (Required for the SQLite database)
+  - `mbstring` (Recommended for string handling)
+
+### 📥 Step 1: Get the Source Code
+
+Choose one of the following methods:
+
+#### Option A: Download ZIP (Easiest for Beginners)
+
+1. **Download** the project as a ZIP file: [Download ZIP](https://github.com/dominosaurs/php-patterns-roadmap/archive/refs/heads/main.zip)
+2. **Extract** the ZIP file to your local directory.
+
+#### Option B: Clone via Git
+
+```bash
+git clone https://github.com/dominosaurs/php-patterns-roadmap.git
+cd php-patterns-roadmap
+```
+
+### 🚀 Step 2: Run the Application
 
 Simply use the PHP built-in server from the root directory:
 
