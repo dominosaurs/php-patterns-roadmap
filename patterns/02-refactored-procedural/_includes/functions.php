@@ -54,3 +54,11 @@ function redirect($url)
     header("Location: $url");
     exit;
 }
+
+/**
+ * Checks if the given path is the current active page.
+ */
+function is_active($path)
+{
+    return strpos($_SERVER['SCRIPT_NAME'], $path) !== false;
+}
