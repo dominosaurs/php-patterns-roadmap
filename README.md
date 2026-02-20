@@ -99,7 +99,7 @@ This project is a journey. Follow the folders in order to see how the code impro
 - **[04-modern-infrastructure](./patterns/04-modern-infrastructure/)**
   - Unified infrastructure: PSR-4 Autoloading, Singleton Database, and Middleware Pipeline.
   - **Lesson**: Building the robust "engine" that powers modern apps.
-- **05-dependency-injection-and-types** (Planned)
+- **[05-dependency-injection-and-types](./patterns/05-dependency-injection-and-types/)**
   - Introduction to Dependency Injection, Strict Types, and Type Hinting.
   - **Lesson**: Writing safe, testable, and decoupled code.
 
