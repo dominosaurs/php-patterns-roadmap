@@ -4,19 +4,19 @@ require_once '../../../database/pdo.php';
 $id = (int) ($_GET['id'] ?? 0);
 
 if (count($_POST) > 0) {
-    $statement = $pdo->prepare("DELETE FROM tags WHERE id = :id");
+    $statement = $pdo->prepare('DELETE FROM tags WHERE id = :id');
     $statement->execute([':id' => $_POST['id']]);
 
     header('Location: index.php');
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT name FROM tags WHERE id = ?");
+$stmt = $pdo->prepare('SELECT name FROM tags WHERE id = ?');
 $stmt->execute([$id]);
 $tag = $stmt->fetch();
 
-if (!$tag) {
-    die("Tag not found.");
+if (! $tag) {
+    exit('Tag not found.');
 }
 
 $title = 'Delete Tag';

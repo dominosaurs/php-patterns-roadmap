@@ -10,20 +10,20 @@
         <label>Category</label>
         <select name="category_id">
             <option value="">-- No Category --</option>
-            <?php foreach ($categories as $cat): ?>
+            <?php foreach ($categories as $cat) { ?>
                 <option value="<?= $cat['id'] ?>"><?= e($cat['name']) ?></option>
-            <?php endforeach; ?>
+            <?php } ?>
         </select>
     </p>
 
     <p>
         <label>Tags</label>
-        <?php foreach ($tags as $tag): ?>
+        <?php foreach ($tags as $tag) { ?>
             <label>
                 <input type="checkbox" name="tags[]" value="<?= $tag['id'] ?>">
                 #<?= e($tag['name']) ?>
             </label>
-        <?php endforeach; ?>
+        <?php } ?>
     </p>
 
     <p>

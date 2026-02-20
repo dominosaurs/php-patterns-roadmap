@@ -11,24 +11,24 @@
 
 <p>
     <strong>Category:</strong>
-    <?php if ($todo['category_name']): ?>
+    <?php if ($todo['category_name']) { ?>
         <mark style="background-color: <?= $todo['category_color'] ?? '#eee' ?>; color: white;">
             <?= e($todo['category_name']) ?>
         </mark>
-    <?php else: ?>
+    <?php } else { ?>
         <em>None</em>
-    <?php endif; ?>
+    <?php } ?>
 </p>
 
 <p>
     <strong>Tags:</strong>
-    <?php if (empty($tags)): ?>
+    <?php if (empty($tags)) { ?>
         <em>None</em>
-    <?php else: ?>
-        <?php foreach ($tags as $tag): ?>
+    <?php } else { ?>
+        <?php foreach ($tags as $tag) { ?>
             <code>#<?= e($tag['name']) ?></code>
-        <?php endforeach; ?>
-    <?php endif; ?>
+        <?php } ?>
+    <?php } ?>
 </p>
 
 <pre><?= e($todo['description'] ?? 'No description provided') ?></pre>
@@ -38,8 +38,8 @@
 </p>
 
 <p>
-    <a href="<?= url('todo/update?id=' . $todo['id']) ?>" class="button">Edit</a>
-    <a href="<?= url('todo/delete?id=' . $todo['id']) ?>">Delete</a>
+    <a href="<?= url('todo/update?id='.$todo['id']) ?>" class="button">Edit</a>
+    <a href="<?= url('todo/delete?id='.$todo['id']) ?>">Delete</a>
 </p>
 
 <?php include '_includes/footer.php'; ?>

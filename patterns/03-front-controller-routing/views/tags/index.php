@@ -8,15 +8,15 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($tags as $tag): ?>
+        <?php foreach ($tags as $tag) { ?>
             <tr>
                 <td>#<?= e($tag['name']) ?></td>
                 <td>
-                    <a href="<?= url('tags/update?id=' . $tag['id']) ?>">Edit</a>
-                    <a href="<?= url('tags/delete?id=' . $tag['id']) ?>">Delete</a>
+                    <a href="<?= url('tags/update?id='.$tag['id']) ?>">Edit</a>
+                    <a href="<?= url('tags/delete?id='.$tag['id']) ?>">Delete</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 

@@ -1,7 +1,7 @@
 <?php
 require_once '../_includes/functions.php';
 
-$categories = db_get_all("SELECT * FROM categories ORDER BY name");
+$categories = db_get_all('SELECT * FROM categories ORDER BY name');
 
 $title = 'Manage Categories';
 include '../_includes/header.php';
@@ -16,7 +16,7 @@ include '../_includes/header.php';
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($categories as $cat): ?>
+        <?php foreach ($categories as $cat) { ?>
             <tr>
                 <td>
                     <span style="color: <?= $cat['color'] ?? '#000' ?>;">●</span>
@@ -28,7 +28,7 @@ include '../_includes/header.php';
                     <a href="delete.php?id=<?= $cat['id'] ?>">Delete</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 

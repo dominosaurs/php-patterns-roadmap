@@ -5,7 +5,7 @@ $id = (int) ($_GET['id'] ?? 0);
 
 if (count($_POST) > 0) {
     $statement = $pdo->prepare(
-        "DELETE FROM categories WHERE id = :id"
+        'DELETE FROM categories WHERE id = :id'
     );
     $statement->execute([':id' => $_POST['id']]);
 
@@ -13,12 +13,12 @@ if (count($_POST) > 0) {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT name FROM categories WHERE id = ?");
+$stmt = $pdo->prepare('SELECT name FROM categories WHERE id = ?');
 $stmt->execute([$id]);
 $category = $stmt->fetch();
 
-if (!$category) {
-    die("Category not found.");
+if (! $category) {
+    exit('Category not found.');
 }
 
 $title = 'Delete Category';

@@ -3,27 +3,27 @@ require_once '../../database/pdo.php';
 
 // Fetch Todo with Category
 $statement = $pdo->prepare(
-    "SELECT
+    'SELECT
         todos.*,
         categories.name as category_name,
         categories.color as category_color 
     FROM todos 
     LEFT JOIN categories ON todos.category_id = categories.id 
-    WHERE todos.id = :id"
+    WHERE todos.id = :id'
 );
 $statement->execute([':id' => $_GET['id']]);
 $todo = $statement->fetch();
 
-if (!$todo) {
-    die("Todo not found.");
+if (! $todo) {
+    exit('Todo not found.');
 }
 
 // Fetch Tags for this Todo
-$tagStmt = $pdo->prepare("SELECT tags.name
+$tagStmt = $pdo->prepare('SELECT tags.name
     FROM tags
     JOIN todo_tags ON tags.id = todo_tags.tag_id
     WHERE todo_tags.todo_id = :id
-");
+');
 $tagStmt->execute([':id' => $_GET['id']]);
 $tags = $tagStmt->fetchAll();
 
@@ -42,24 +42,24 @@ include '_includes/header.php';
 
 <p>
     <strong>Category:</strong>
-    <?php if ($todo['category_name']): ?>
+    <?php if ($todo['category_name']) { ?>
         <mark style="background-color: <?= $todo['category_color'] ?? '#eee' ?>; color: white;">
             <?= htmlspecialchars($todo['category_name']) ?>
         </mark>
-    <?php else: ?>
+    <?php } else { ?>
         <em>None</em>
-    <?php endif; ?>
+    <?php } ?>
 </p>
 
 <p>
     <strong>Tags:</strong>
-    <?php if (empty($tags)): ?>
+    <?php if (empty($tags)) { ?>
         <em>None</em>
-    <?php else: ?>
-        <?php foreach ($tags as $tag): ?>
+    <?php } else { ?>
+        <?php foreach ($tags as $tag) { ?>
             <code>#<?= htmlspecialchars($tag['name']) ?></code>
-        <?php endforeach; ?>
-    <?php endif; ?>
+        <?php } ?>
+    <?php } ?>
 </p>
 
 <pre><?= htmlspecialchars($todo['description'] ?? 'No description provided') ?></pre>

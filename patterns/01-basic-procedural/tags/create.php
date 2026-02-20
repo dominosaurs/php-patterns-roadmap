@@ -3,7 +3,7 @@ require_once '../../../database/pdo.php';
 
 if (count($_POST) > 0) {
     $statement = $pdo->prepare(
-        "INSERT INTO tags (name) VALUES (:name)"
+        'INSERT INTO tags (name) VALUES (:name)'
     );
     $statement->execute([':name' => $_POST['name']]);
 

@@ -1,12 +1,12 @@
 <?php include '_includes/header.php'; ?>
 
-<?php if (empty($todos)): ?>
+<?php if (empty($todos)) { ?>
     <article>
         <p>
             <code>No todos found. Start by <a href="<?= url('todo/create') ?>">adding your first task</a>.</code>
         </p>
     </article>
-<?php else: ?>
+<?php } else { ?>
     <table>
         <thead>
             <tr>
@@ -17,37 +17,37 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($todos as $todo): ?>
+            <?php foreach ($todos as $todo) { ?>
                 <tr>
                     <td style="text-align: center;">
                         <?= $todo['is_completed'] ? '✅' : '⏳' ?>
                     </td>
                     <td>
-                        <a href="<?= url('todo/read?id=' . $todo['id']) ?>">
+                        <a href="<?= url('todo/read?id='.$todo['id']) ?>">
                             <strong><?= e($todo['name']) ?></strong>
                         </a>
                     </td>
                     <td>
-                        <?php if ($todo['category_name']): ?>
+                        <?php if ($todo['category_name']) { ?>
                             <mark style="background-color: <?= $todo['category_color'] ?? '#eee' ?>; color: white;">
                                 <?= e($todo['category_name']) ?>
                             </mark>
-                        <?php endif; ?>
+                        <?php } ?>
 
-                        <?php if ($todo['tag_names']): ?>
-                            <?php foreach (explode(',', $todo['tag_names']) as $tag): ?>
+                        <?php if ($todo['tag_names']) { ?>
+                            <?php foreach (explode(',', $todo['tag_names']) as $tag) { ?>
                                 <code>#<?= e($tag) ?></code>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                            <?php } ?>
+                        <?php } ?>
                     </td>
                     <td>
-                        <a href="<?= url('todo/update?id=' . $todo['id']) ?>">Edit</a>
+                        <a href="<?= url('todo/update?id='.$todo['id']) ?>">Edit</a>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+            <?php } ?>
         </tbody>
     </table>
-<?php endif; ?>
+<?php } ?>
 
 <p>
     <a href="<?= url('todo/create') ?>" class="button">Add New Todo</a>

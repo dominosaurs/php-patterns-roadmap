@@ -5,26 +5,26 @@ require_once '../../database/pdo.php';
 if (count($_POST) > 0) {
     // 1. Insert into 'todos'
     $statement = $pdo->prepare(
-        "INSERT INTO
+        'INSERT INTO
             todos (category_id, name, description, is_completed)
-            VALUES (:category_id, :name, :description, :is_completed)"
+            VALUES (:category_id, :name, :description, :is_completed)'
     );
 
     $statement->execute([
-        ':category_id' => !empty($_POST['category_id'])
+        ':category_id' => ! empty($_POST['category_id'])
             ? $_POST['category_id'] : null,
         ':name' => $_POST['name'],
         ':description' => empty($_POST['description'])
             ? null : $_POST['description'],
-        ':is_completed' => isset($_POST['is_completed']) ? 1 : 0
+        ':is_completed' => isset($_POST['is_completed']) ? 1 : 0,
     ]);
 
     $todoId = $pdo->lastInsertId();
 
     // 2. Insert tags into 'todo_tags' pivot table
-    if (!empty($_POST['tags'])) {
+    if (! empty($_POST['tags'])) {
         $tagStmt = $pdo->prepare(
-            "INSERT INTO todo_tags (todo_id, tag_id) VALUES (?, ?)"
+            'INSERT INTO todo_tags (todo_id, tag_id) VALUES (?, ?)'
         );
         foreach ($_POST['tags'] as $tagId) {
             $tagStmt->execute([$todoId, $tagId]);
@@ -36,10 +36,10 @@ if (count($_POST) > 0) {
 }
 
 // Fetch categories for the form
-$categories = $pdo->query("SELECT * FROM categories")->fetchAll();
+$categories = $pdo->query('SELECT * FROM categories')->fetchAll();
 
 // Fetch tags for the form
-$tags = $pdo->query("SELECT * FROM tags")->fetchAll();
+$tags = $pdo->query('SELECT * FROM tags')->fetchAll();
 
 $title = 'Add New Todo';
 include '_includes/header.php';
@@ -55,20 +55,20 @@ include '_includes/header.php';
         <label>Category</label>
         <select name="category_id">
             <option value="">-- No Category --</option>
-            <?php foreach ($categories as $cat): ?>
+            <?php foreach ($categories as $cat) { ?>
                 <option value="<?= $cat['id'] ?>"><?= htmlspecialchars($cat['name']) ?></option>
-            <?php endforeach; ?>
+            <?php } ?>
         </select>
     </p>
 
     <p>
         <label>Tags</label>
-        <?php foreach ($tags as $tag): ?>
+        <?php foreach ($tags as $tag) { ?>
             <label>
                 <input type="checkbox" name="tags[]" value="<?= $tag['id'] ?>">
                 #<?= htmlspecialchars($tag['name']) ?>
             </label>
-        <?php endforeach; ?>
+        <?php } ?>
     </p>
 
     <p>
