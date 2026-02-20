@@ -80,13 +80,13 @@ This project is a journey. Follow the folders in order to see how the code impro
 - **[01-basic-procedural](./patterns/01-basic-procedural/)** (Current)
   - Raw PHP. Logic, database, and HTML are all mixed together.
   - **Lesson**: Why "Spaghetti Code" is hard to read and maintain.
-- **[02-refactored-procedural](./patterns/01-refactored-procedural/)** (Planned)
+- **[02-refactored-procedural](./patterns/02-refactored-procedural/)**
   - Moving logic into reusable functions.
   - **Lesson**: Don't Repeat Yourself (DRY).
 
 ### Phase 2: Centralization & Infrastructure
 
-- **03-front-controller-routing** (Planned)
+- **[03-front-controller-routing](./patterns/03-front-controller-routing/)**
   - Moving from multi-file to a single `index.php` entry point.
   - **Lesson**: How to handle URLs and centralize your application logic.
 - **04-autoloading-psr4** (Planned)
